@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var release = require('../index');
+var package = require('../package');
+
+program
+  .version(package.version)
+  .usage('[<newversion> | major | minor | patch]')
+  .parse(process.argv);
+
+var type = program.args.length > 0 && program.args[0];
+release(type, function() {
+  process.exit();
+});

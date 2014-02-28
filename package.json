@@ -1,0 +1,31 @@
+{
+  "name": "git-release",
+  "version": "0.0.1",
+  "description": "Release a new version of your Git project",
+  "main": "./index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oligot/git-release.git"
+  },
+  "keywords": [
+    "git",
+    "release"
+  ],
+  "author": "Olivier Ligot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oligot/git-release/issues"
+  },
+  "dependencies": {
+    "semver": "^2.2.1",
+    "shelljs": "^0.2.6",
+    "inquirer": "^0.4.1",
+    "commander": "^2.1.0"
+  },
+  "bin": {
+    "git-release": "./bin/git-release"
+  }
+}
