@@ -21,22 +21,32 @@ function release(type, callback) {
   var type = type || 'patch'
   var pkg = require(path.join(process.cwd(), 'package.json'));
   var newVersion = semver.inc(pkg.version, type) || type;
-  var tag = 'v' + newVersion;
+  var types = ['major', 'minor', 'patch'];
+  var choices = types.map(function (type) {
+    var version = semver.inc(pkg.version, type);
+    return { name: version + ' (Increment ' + type + ' version)', value: version };
+  });
+  if (types.indexOf(type) < 0) {
+    choices.push({name: newVersion + ' (Custom version)', value: newVersion});
+  }
   var filenames = ['package.json'];
   if (fs.existsSync('system.json')) {
     filenames.push('system.json');
   }
   inquirer.prompt([{
-    type: 'confirm',
-    name: 'confirmation',
-    message: 'Do you want to create tag ' + tag + '?',
-  default: false
+    type: 'list',
+    name: 'version',
+    message: 'Which version do you want to release ?',
+    choices: choices.concat([ new inquirer.Separator(), { name: "Exit (Don't release a new version)", value: 'exit' }]),
+    default: newVersion
   }], function(answers) {
-    if (answers.confirmation) {
-      bump(filenames, newVersion);
-      console.log('Version bumped to ' + newVersion);
+    var version = answers.version;
+    if (version !== 'exit') {
+      var tag = 'v' + version;
+      bump(filenames, version);
+      console.log('Version bumped to ' + version);
       shell.exec('git add ' + filenames.join(' '));
-      run('git commit -m "Version ' + newVersion + '"', filenames.join(' ') + ' committed');
+      run('git commit -m "Version ' + version + '"', filenames.join(' ') + ' committed');
       run('git tag -a ' + tag + ' -m "Tag ' + tag + '"', 'Tag ' + tag + ' created');
       run('git push', 'Pushed to remote');
       run('git push --tags', 'Pushed new tag ' + tag + ' to remote');
