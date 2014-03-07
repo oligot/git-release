@@ -17,6 +17,21 @@ function run(cmd, msg) {
   console.log(msg);
 }
 
+function publish(pkg, version, callback) {
+  if (!pkg.private) {
+    inquirer.prompt([{
+      type: 'confirm',
+      name: 'confirmation',
+      message: 'Do you want to publish version ' + version + '?'
+    }], function(answers) {
+      if (answers.confirmation) {
+        shell.exec('npm publish');
+        callback();
+      }
+    });
+  }
+}
+
 function release(type, callback) {
   var type = type || 'patch'
   var pkg = require(path.join(process.cwd(), 'package.json'));
@@ -50,8 +65,10 @@ function release(type, callback) {
       run('git tag -a ' + tag + ' -m "Tag ' + tag + '"', 'Tag ' + tag + ' created');
       run('git push', 'Pushed to remote');
       run('git push --tags', 'Pushed new tag ' + tag + ' to remote');
+      publish(pkg, version, callback);
+    } else {
+      callback();
     }
-    callback();
   });
 
 }
