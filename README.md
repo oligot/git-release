@@ -40,3 +40,4 @@ Or force a specific version
 
 ```shell
 git-release 1.3.0-alpha
+```

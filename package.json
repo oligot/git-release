@@ -27,5 +27,6 @@
   },
   "bin": {
     "git-release": "./bin/git-release"
-  }
+  },
+  "man": "./man/git-release.1"
 }
