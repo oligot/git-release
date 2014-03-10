@@ -2,6 +2,8 @@
 
 > Release a new version of your Git project
 
+![screenshot](screenshot.png)
+
 ## Installation
 
 Install with npm
