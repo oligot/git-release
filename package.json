@@ -23,7 +23,10 @@
     "semver": "^2.2.1",
     "shelljs": "^0.2.6",
     "inquirer": "^0.4.1",
-    "commander": "^2.1.0"
+    "commander": "^2.1.0",
+    "xmldom": "^0.1.19",
+    "colors": "^0.6.2",
+    "array.prototype.find": "^0.1.1"
   },
   "bin": {
     "git-release": "./bin/git-release"

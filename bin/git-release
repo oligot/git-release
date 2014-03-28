@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var release = require('../index');
+var release = require('..');
 var package = require('../package');
 
 program
@@ -10,6 +10,11 @@ program
   .parse(process.argv);
 
 var type = program.args.length > 0 && program.args[0];
-release(type, function() {
-  process.exit();
+release(type, function(err) {
+  if (err) {
+    console.error(err.message);
+    process.exit(1);
+  } else {
+    process.exit();
+  }
 });
