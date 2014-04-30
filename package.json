@@ -25,8 +25,8 @@
     "inquirer": "^0.4.1",
     "commander": "^2.1.0",
     "xmldom": "^0.1.19",
-    "colors": "^0.6.2",
-    "array.prototype.find": "^0.1.1"
+    "array.prototype.find": "^0.1.1",
+    "chalk": "^0.4.0"
   },
   "bin": {
     "git-release": "./bin/git-release"
