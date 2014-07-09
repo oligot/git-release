@@ -29,7 +29,7 @@
     "chalk": "^0.4.0"
   },
   "bin": {
-    "git-release": "./bin/git-release"
+    "release": "./bin/release"
   },
-  "man": "./man/git-release.1"
+  "man": "./man/release.1"
 }

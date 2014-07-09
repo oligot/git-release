@@ -1,4 +1,4 @@
-# git-release
+# release
 
 > Release a new version of your Git project
 
@@ -15,7 +15,7 @@ npm install -g git-release
 ## Usage
 
 ```shell
-git-release
+release
 ```
 
 By default, this will
@@ -27,17 +27,17 @@ By default, this will
 You can also increment the minor version (ex: from 1.2.0 to 1.3.0)
 
 ```shell
-git-release minor
+release minor
 ```
 
 Or the major version  (ex: from 1.2.0 to 2.0.0)
 
 ```shell
-git-release major
+release major
 ```
 
 Or force a specific version
 
 ```shell
-git-release 1.3.0-alpha
+release 1.3.0-alpha
 ```
