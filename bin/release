@@ -4,13 +4,18 @@ var program = require('commander');
 var release = require('..');
 var package = require('../package');
 
+function list(val) {
+  return val.split(',');
+}
+
 program
   .version(package.version)
   .usage('[<newversion> | major | minor | patch]')
+  .option('-f, --files <filenames>', 'Filenames to update', list)
   .parse(process.argv);
 
 var type = program.args.length > 0 && program.args[0];
-release(type, function(err) {
+release(type, program.files, function(err) {
   if (err) {
     console.error(err.message);
     process.exit(1);
