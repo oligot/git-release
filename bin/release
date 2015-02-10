@@ -8,10 +8,11 @@ program
   .version(pkg.version)
   .usage('files...')
   .option('-f, --force <version>', 'force a specific version (<newversion> | major | minor | patch)')
+  .option('-p, --parent', 'also update parent version (Maven only)')
   .parse(process.argv);
 
 var files = program.args.length > 0 && program.args;
-release(program.force, files, function(err) {
+release(program.force, files, program.parent, function(err) {
   if (err) {
     console.error(err.message);
     process.exit(1);
