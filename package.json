@@ -20,13 +20,13 @@
     "url": "https://github.com/oligot/git-release/issues"
   },
   "dependencies": {
-    "semver": "^2.2.1",
-    "shelljs": "^0.2.6",
-    "inquirer": "^0.4.1",
+    "array.prototype.find": "^1.0.0",
+    "chalk": "^0.5.1",
     "commander": "^2.1.0",
-    "xmldom": "^0.1.19",
-    "array.prototype.find": "^0.1.1",
-    "chalk": "^0.4.0"
+    "inquirer": "^0.8.0",
+    "semver": "^4.2.2",
+    "shelljs": "^0.3.0",
+    "xmldom": "^0.1.19"
   },
   "bin": {
     "release": "./bin/release"
