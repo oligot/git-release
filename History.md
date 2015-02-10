@@ -1,4 +1,13 @@
 
+0.6.0 / 2015-02-10
+==================
+
+  * New option to also update parent version (Maven only)
+  * Use space instead of , as files delimiter
+  * Update dependencies
+  * maven: don''t try to update parent version
+  * Document pre/post release hooks
+
 0.5.0 / 2014-08-20
 ==================
 
