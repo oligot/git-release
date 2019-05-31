@@ -23,7 +23,7 @@
     "array.prototype.find": "^1.0.0",
     "chalk": "^0.5.1",
     "commander": "^2.1.0",
-    "inquirer": "^0.8.0",
+    "inquirer": "^6.3.1",
     "semver": "^4.2.2",
     "shelljs": "^0.3.0",
     "xmldom": "^0.1.19"
