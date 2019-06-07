@@ -4,7 +4,7 @@
   "description": "Release a new version of your Git project",
   "main": "./index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint index.js bin/release lib"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,8 @@
   "bin": {
     "release": "./bin/release"
   },
-  "man": "./man/release.1"
+  "man": "./man/release.1",
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
 }
